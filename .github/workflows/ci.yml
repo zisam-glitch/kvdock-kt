@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: set up jdk
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: install kotlin compiler
+        run: |
+          curl -sSL "https://github.com/JetBrains/kotlin/releases/download/v2.0.21/kotlin-compiler-2.0.21.zip" -o kotlinc.zip
+          unzip -q kotlinc.zip
+          echo "$PWD/kotlinc/bin" >> $GITHUB_PATH
+      - name: compile and run tests
+        run: |
+          kotlinc src/main/kotlin/io/github/kvdock/*.kt src/test/kotlin/io/github/kvdock/*.kt -include-runtime -d test.jar
+          java -cp test.jar io.github.kvdock.KVDockTestKt
