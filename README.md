@@ -40,7 +40,7 @@ kotlin -cp test.jar io.github.kvdock.KVDockTestKt
 
 KVDock is also available natively across multiple languages with matching design principles and zero external dependencies:
 
-- **TypeScript / Node.js**: [`zisam-glitch/kvdock`](https://github.com/zisam-glitch/kvdock) — Reference implementation with Tiered Caching, SQLite, S3, Redis, and Cloudflare KV adapters.
+- **TypeScript / Node.js**: [`kvdock` on npm](https://www.npmjs.com/package/kvdock) | [`zisam-glitch/kvdock`](https://github.com/zisam-glitch/kvdock) — Reference implementation with Tiered Caching, SQLite, S3, Redis, and Cloudflare KV adapters.
 - **Rust**: [`zisam-glitch/kvdock-rs`](https://github.com/zisam-glitch/kvdock-rs) — Thread-safe caching layer with monotonic `Instant` TTL.
 - **Go**: [`zisam-glitch/kvdock-go`](https://github.com/zisam-glitch/kvdock-go) — Generic key-value cache engine with atomic telemetry.
 - **Swift**: [`zisam-glitch/kvdock-swift`](https://github.com/zisam-glitch/kvdock-swift) — Actor-isolated concurrent cache with `ContinuousClock`.
